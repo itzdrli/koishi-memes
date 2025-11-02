@@ -1,13 +1,11 @@
 services:
-  mongodb:
-    image: mongo:latest
-    container_name: mongodb
-    restart: unless-stopped
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: koi
-      MONGO_INITDB_ROOT_PASSWORD: jdEE1ajuzgwuQy4
-      MONGO_INITDB_DATABASE: koi_memes
+  postgres:
+    image: postgres:18
+    container_name: koi_memes_db
+    restart: always
+    env_file: 
+      - .env
     ports:
-      - "27019:27017"
+      - "5431:5432"
     volumes:
-      - ./db:/data/db
+      - ./db:/var/lib/postgresql

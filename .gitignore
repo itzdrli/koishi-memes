@@ -14,6 +14,7 @@
 
 # production
 /build
+public/memes/*
 
 # misc
 .DS_Store
@@ -40,3 +41,12 @@ yarn-error.log*
 **/*.log
 package-lock.json
 **/*.bun
+/src/generated/prisma
+/.env
+
+# db & drizzle
+drizzle/
+db/
+
+.idea/*
+batch-upload/
