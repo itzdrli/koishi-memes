@@ -2,28 +2,31 @@
   "name": "app",
   "version": "1.0.50",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "lint": "oxlint src"
   },
   "dependencies": {
+    "@elysiajs/cors": "^1.4.0",
     "@elysiajs/jwt": "^1.4.0",
     "@elysiajs/openapi": "^1.4.11",
-    "@elysiajs/static": "^1.4.5",
-    "@rasla/logify": "^5.1.1",
+    "@elysiajs/static": "^1.4.7",
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.44.7",
     "elysia": "latest",
+    "logestic": "^1.2.4",
     "pg": "^8.16.3",
-    "sharp": "^0.34.4"
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "@types/node": "^24.9.2",
+    "@types/bcrypt": "^6.0.0",
+    "@types/node": "^24.10.2",
     "@types/pg": "^8.15.6",
     "bun-types": "latest",
     "dotenv-cli": "^11.0.0",
-    "drizzle-kit": "^0.31.6",
-    "prettier": "^3.6.2",
-    "tsx": "^4.20.6"
+    "drizzle-kit": "^0.31.8",
+    "oxlint": "^1.0.0",
+    "tsx": "^4.21.0"
   },
   "module": "src/index.js"
 }

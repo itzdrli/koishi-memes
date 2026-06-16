@@ -1,11 +1,38 @@
 services:
   postgres:
     image: postgres:18
-    container_name: koi_memes_db
+    container_name: kmeme-db
     restart: always
-    env_file: 
+    env_file:
       - .env
     ports:
       - "5431:5432"
     volumes:
       - ./db:/var/lib/postgresql
+
+  koishi-meme:
+    image: oven/bun:latest
+    container_name: kmeme-app
+    restart: always
+    env_file:
+      - .env
+    working_dir: /app
+    volumes:
+      - ./:/app
+    depends_on:
+      - postgres
+    command: bun dev
+    networks:
+      - default
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.kmeme.rule=Host(`kmeme.itzdrli.cc`)"
+      - "traefik.http.routers.kmeme.entrypoints=websecure"
+      - "traefik.http.routers.kmeme.tls=true"
+      - "traefik.http.routers.kmeme.tls.certresolver=cf"
+      - "traefik.http.services.kmeme.loadbalancer.server.port=3060"
+
+networks:
+  proxy:
+    external: true
