@@ -16,6 +16,9 @@
 /build
 public/memes/*
 
+# core dumps
+core.*
+
 # misc
 .DS_Store
 *.pem
