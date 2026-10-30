@@ -1,0 +1,1 @@
+ALTER TABLE "memes" RENAME COLUMN "image_url" TO "image_path";

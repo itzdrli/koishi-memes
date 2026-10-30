@@ -6,7 +6,7 @@ import { Logestic } from "logestic";
 import { routes } from "./routes";
 import "dotenv/config";
 
-const app = new Elysia()
+new Elysia()
   .use(Logestic.preset("fancy"))
   .use(openapi())
   .use(cors())

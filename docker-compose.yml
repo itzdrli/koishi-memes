@@ -1,27 +1,32 @@
 services:
   postgres:
-    image: postgres:18
+    image: postgres:18.6
     container_name: kmeme-db
     restart: always
     env_file:
       - .env
     ports:
-      - "5431:5432"
+      - "100.109.34.104:5431:5432"
     volumes:
       - ./db:/var/lib/postgresql
 
   koishi-meme:
-    image: oven/bun:latest
+    image: oven/bun:1.3.14
     container_name: kmeme-app
     restart: always
     env_file:
       - .env
     working_dir: /app
+    # 只挂载运行需要的文件: .env (由 env_file 注入) 和 ./db (postgres 数据) 不进 app 容器
     volumes:
-      - ./:/app
+      - ./src:/app/src:ro
+      - ./node_modules:/app/node_modules:ro
+      - ./package.json:/app/package.json:ro
+      - ./tsconfig.json:/app/tsconfig.json:ro
+      - ./public:/app/public
     depends_on:
       - postgres
-    command: bun dev
+    command: bun run start
     ulimits:
       core:
         soft: 0

@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1762032707729,
+      "tag": "0000_add_password_field",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1762036907574,
+      "tag": "0001_add_is_admin_field",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1762047444091,
+      "tag": "0002_add_meme_user_relation",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1762048069888,
+      "tag": "0003_update_image_url_to_path",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793371896935,
+      "tag": "0004_unique_meme_title",
+      "breakpoints": true
+    }
+  ]
+}

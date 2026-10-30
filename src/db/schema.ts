@@ -1,4 +1,4 @@
-import { boolean, pgTable, text, timestamp, uuid, varchar, foreignKey } from "drizzle-orm/pg-core";
+import { boolean, pgTable, timestamp, uuid, varchar, foreignKey } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
   id: uuid("id").defaultRandom().primaryKey(),
@@ -11,7 +11,7 @@ export const users = pgTable("users", {
 
 export const memes = pgTable("memes", {
   id: uuid("id").defaultRandom().primaryKey(),
-  title: varchar("title", { length: 255 }).notNull(),
+  title: varchar("title", { length: 255 }).notNull().unique(),
   imagePath: varchar("image_path", { length: 255 }).notNull(),
   userId: uuid("user_id").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),

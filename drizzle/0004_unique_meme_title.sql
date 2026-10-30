@@ -1,0 +1,1 @@
+ALTER TABLE "memes" ADD CONSTRAINT "memes_title_unique" UNIQUE("title");
